@@ -1,0 +1,75 @@
+
+
+<br>   
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="المعلومات الشخصية">
+        <div class="container">
+            <fieldset class="form-group">
+                <label>اسم المستخدم</label>
+                <input type="text" [(ngModel)]="user.userName" class="form-control" readonly="readonly" name="userName" required="required">
+            </fieldset>
+            <fieldset class="form-group">
+                <label>رقم الهاتف</label>
+                <input type="text" [(ngModel)]="user.mobile" class="form-control" name="mobile" required="required" minlength="9" maxlength="14" pattern="[0-9]*">
+            </fieldset>
+            <fieldset class="form-group">
+                <label>اسم الاول</label>
+                <input type="text" [(ngModel)]="user.userFirstName" class="form-control" name="userFirstName"
+                    required="required">
+            </fieldset>
+            <fieldset class="form-group">
+                <label>اسم الاخير</label>
+                <input type="text" [(ngModel)]="user.userLastName" class="form-control" name="userLastName" required="required">
+            </fieldset>
+     
+            <!-- <button class="btn btn-success" >Save</button> -->
+            <br>
+            <button class="btn btn-success" (click)="updateUser()">Save</button>
+        </div>
+    </mat-tab>
+    
+    <mat-tab label="تغير كلمة المرور">
+        <br>
+        <div class="container">
+        <fieldset class="form-group">
+            <label>كلمة المرور</label>
+            <input type="text" [(ngModel)]="user.userPassword" class="form-control" name="userPassword"
+                placeholder="leave blank if you don't want to change password" required="required">
+        </fieldset>
+        <button class="btn btn-success" (click)="updatePassword()">Save</button>
+
+    </div>
+    </mat-tab>
+   
+  </mat-tab-group>
+  
+
+
+
+
+
+
+
+
+
+<!-- <div class="container mt-5">
+    <div class="card text-center" style="padding: 20px; color: red;">
+        <h1>You are User</h1>
+        <h1>{{message}}</h1>
+    </div>
+</div> -->
+<div class="text-center" >
+    يمكنك التحكم في خدمات من هنا 
+<button type="button" routerLink="/foundationList" class="btn btn-primary">خدماتي</button>
+</div>
+
+<br>
+<br><br>
+<br><br>
+<br>
+
+<hr class="featurette-divider">
+<br>
+<app-footer></app-footer>
+
+

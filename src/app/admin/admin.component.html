@@ -1,0 +1,94 @@
+<div class="container mt-5">
+    <div class="card text-center" style="color: green; padding: 20px;">
+        <h1>ِِAdmin dashboared</h1>
+    </div>
+</div>
+
+
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="طلبات العملاء">
+    <table class="table">
+      <thead>
+      <tr>
+  
+        <th>الخدمه</th>
+        <th>المدينة</th>
+        <th>اسم مقدم الخدكة</th>
+        <th>التاريخ</th>
+        <th>معلومات الخدمة</th>
+        <th>حذف</th>
+  
+  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orderBean">
+        <td>{{order.service.name}}</td>
+        <td>{{order.city.nameAr}}</td>
+        <td>{{order.created}}</td>
+        <td>{{order.information}}</td>
+  
+        <td><button (click)="deleteOrder(foundation.id)"  class="btn btn-warning">حذف </button> </td>
+        <!-- <td><button  (click)="updateArea(area.id)" class="btn btn-success">ubdate </button> </td> -->
+        <!-- <td><button  (click)="foundationDetails(foundation.id)" class="btn btn-success">التفاصيل </button> </td> -->
+      </tr>
+    </tbody>
+    </table>
+  </mat-tab>
+  <mat-tab label="الخدمات">
+      
+<table class="table">
+  <thead>
+  <tr>
+
+    <th>اسم الخدمه</th>
+    <th>المدينة</th>
+    <th>اسم الشركة</th>
+    <th>الوصف</th>
+    <th>نشط</th>
+
+    <th>تعديل</th>
+    <th>حذف</th>
+
+
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let foundation of foundationBean">
+    <td>{{foundation.service.name}}</td>
+    <td>{{foundation.city.nameAr}}</td>
+    <td>{{foundation.nameAr}}</td>
+    <td>{{foundation.phone}}</td>
+    <td><input class="form-check-input" type="checkbox"
+      [value]="foundation.id"
+      [checked]="foundation.active"
+      (change)="updateCheck($event)"
+      ></td>
+
+    <td><button  (click)="uppdateFoundation(foundation.id,foundation.service.id)" class="btn btn-success">تعديل </button> </td>
+    <td><button (click)="deleteFoundation(foundation.id)"  class="btn btn-warning">حذف </button> </td>
+    <!-- <td><button  (click)="updateArea(area.id)" class="btn btn-success">ubdate </button> </td> -->
+    <!-- <td><button  (click)="foundationDetails(foundation.id)" class="btn btn-success">التفاصيل </button> </td> -->
+  </tr>
+</tbody>
+</table>
+  </mat-tab>
+ 
+</mat-tab-group>
+
+
+
+<br><br>
+<br>
+
+<hr class="featurette-divider">
+<br>
+<app-footer></app-footer>
+
+
+
+
+
+
+

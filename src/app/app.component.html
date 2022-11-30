@@ -1,0 +1,55 @@
+<!-- <app-header></app-header> -->
+<div style="background-color: #f8f9ff ;">
+<app-header></app-header>
+<br>
+<br>
+<!-- <app-search></app-search> -->
+
+<!-- <app-home></app-home> -->
+
+<router-outlet></router-outlet>
+
+
+
+<!-- <div class="page-wrapper"> -->
+  
+    
+    
+    <!-- MENU SIDEBAR-->
+<!--     
+    <aside class="menu-sidebar d-none d-lg-block">
+
+        <div class="menu-sidebar-content js-scrollbar1">
+            <nav class="navbar-sidebar">
+                <ul class="list-unstyled navbar-list d-flex flex-row-reverse d-flex justify-content-center" *ngFor="let s of service">
+                    <li>
+                        <a routerLink="/homee/{{s.id}}" routerLinkActivate="active-link">{{s.name}}</a>
+                    </li>
+                   
+                </ul>   
+                <label>الخدمه</label>
+                <select class="form-control"  name="first" type="number" [(ngModel)]="serviceId"   (change)="onEditClickService($event.target.value)" ngModel required #first="ngModel" >
+                  <option *ngFor="let service of service" [selected]="service.id === 1" value ="{{service.id}}">  {{service.name}} </option>
+                </select>
+
+                <app-search></app-search>
+
+
+                <label>المدنة</label>
+                <select class="form-control"  name="citydata" type="number" [(ngModel)]="cityName"   (change)="onEditClickCity($event.target.value)" ngModel required #citydata="ngModel" >
+                  <option *ngFor="let c of allcity" [selected]="c.id === cityName" value ="{{c.id}}">  {{c.nameAr}} </option>
+                </select>     
+
+                <a class="nav-link active" aria-current="page" routerLink="/home">Search</a>
+            </nav>
+        </div>
+    </aside> -->
+
+
+    <!-- END MENU SIDEBAR-->
+
+<!-- </div> -->
+
+<!-- PAGE CONTAINER-->
+
+</div>

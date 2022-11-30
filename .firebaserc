@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "khdmatekk"
+  },
+  "targets": {
+    "fekhedmetik": {
+      "hosting": {
+        "jwt-youtube-ui": [
+          "khdmatk"
+        ]
+      }
+    }
+  }
+}

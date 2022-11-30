@@ -1,0 +1,148 @@
+<br><br>
+<div class="container">
+  <br>
+  <form #f="ngForm" (ngSubmit)="addOrder(f)">
+    <br>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <label for="inputAddress">الاسم</label>
+          </td>
+          <td>
+            <label for="inputAddress">رقم الهاتف</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="form-control" placeholder="الاسم" name="namee" type="text" [(ngModel)]="orders.name" required
+              minlength="3" maxlength="100" #namee="ngModel">
+              <span style="color: red;" *ngIf="namee.invalid &&namee.touched">من فضلك ادخل الاسم</span>
+          </td>
+          <td>
+            <input class="form-control" placeholder="الرقم" name="number" type="text" [(ngModel)]="orders.phone" minlength="9" maxlength="14" pattern="[0-9]*"
+              required #number="ngModel">
+              <span style="color: red;" *ngIf="number.invalid &&number.touched">من فضلك ادخل رقم صالح </span>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-group">
+      <span>
+        <h5>العنوان</h5>
+      </span>
+      <input type="text" class="form-control" id="inputAddress" placeholder="العنوان اختياري" maxlength="255">
+    </div>
+    <br>
+    <div class="form-group">
+      <span>
+        <h5>معلومات عن الخدمة</h5>
+      </span>
+      <textarea class="form-control" name="desc" type="text" [(ngModel)]="orders.information" required required  maxlength="500"
+        #desc="ngModel" rows="3"></textarea>
+        <span style="color: red;" *ngIf="desc.invalid &&desc.touched">من فضلك ادخل وصف الخدمة</span>
+    </div>
+
+
+
+
+    <table class="table">
+
+      <tbody>
+        <tr>
+          <td>
+            <h5>الخدمة</h5><span style="color: red;" *ngIf="first.invalid">من فضلك اختر الخدمة</span>
+          </td>
+          <td>
+            <h5>المدينة</h5><span style="color: red;" *ngIf="citydata.invalid">من فضلك اختر المدينة</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="first"
+              type="number" ngModel required #first="ngModel">
+              <option *ngFor="let service of service" value="{{service.id}}"> {{service.name}} </option>
+
+            </select>
+          </td>
+          <!-- <span style="color: red;" *ngIf="service.invalid">من فضلك ادخل وصف الخدمة</span> -->
+
+          <td>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="citydata"
+              type="number" ngModel required #citydata="ngModel">
+              <option *ngFor="let city of city" value="{{city.id}}"> {{city.nameAr}} </option>
+
+            </select>
+            <!-- <select class="form-control"  name="citydata" type="number" ngModel required #citydata="ngModel" >
+            <option *ngFor="let city of city" value ="{{city.id}}">  {{city.nameAr}} </option>
+          </select> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="form-group">
+      <h5>طريقة التواصل</h5>
+      <!-- <input type="text" class="form-control" id="inputAddress" placeholder="يرجي معرفتنا بأنسب طريقة عند التواصل بك "> -->
+      <input class="form-control" name="communication" type="text" placeholder="يرجي معرفتنا بأنسب طريقة عند التواصل بك " maxlength="200"
+        [(ngModel)]="orders.communication" required  #communication="ngModel">
+        <span style="color: red;" *ngIf="communication.invalid&&communication.touched">من فضلك اختر الخدمة</span>
+    </div>
+    <br>
+
+    <div class="col text-center">
+      <button [disabled]="f.invalid" class="btn btn-primary btn-lg">ارسال الطلب</button>
+    </div>
+  </form>
+
+</div>
+
+<br>
+
+
+<!-- <div class="container">
+<div style="margin-left: 10px;">
+    <h2 style="color: blue;" class="font-weight-bold">طلب خدمة</h2>
+  </div>
+  <form #f="ngForm" (ngSubmit)="addOrder(f)" novalidate>
+    <fieldset class="form-groub">
+        <label> الاسم</label>
+        <input class="form-control" name="nn" type="text" [(ngModel)]="orders.name"  required required #nn="ngModel">
+    </fieldset>
+    <fieldset class="form-groub">
+        <label>رقم الهاتف</label>
+        <input class="form-control" name="n" type="text" [(ngModel)]="orders.phone"  required required #second="ngModel">
+    </fieldset>
+    <fieldset class="form-groub">
+      <label>معلومات عن الخدمة </label>
+      <input class="form-control" name="n" type="text" [(ngModel)]="orders.information"  required required #second="ngModel">
+  </fieldset>
+  <fieldset class="form-groub"> 
+    <label>كيفية التواصل</label>
+    <input class="form-control" name="n" type="text" [(ngModel)]="orders.communication"  required required #second="ngModel">
+  </fieldset>
+  
+  <label>الخدمه</label>
+    <select class="form-control"  name="first" type="number" ngModel required #first="ngModel" >
+      <option *ngFor="let service of service" value ="{{service.id}}">  {{service.name}} </option>
+    </select>
+    <label>المدينة</label>
+  
+    <select class="form-control"  name="citydata" type="number" ngModel required #citydata="ngModel" >
+      <option *ngFor="let city of city" value ="{{city.id}}">  {{city.nameAr}} </option>
+    </select>
+     <button>Submit</button>
+    </form>
+    <br>
+
+  </div> -->
+
+
+  <br><br>
+<br>
+
+<hr class="featurette-divider">
+<br>
+<app-footer></app-footer>

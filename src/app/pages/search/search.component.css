@@ -1,0 +1,16 @@
+.row{
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+}
+  
+  .column{
+      width: 20%;
+      float: left;
+      text-align: center;
+  }
+
+
+
+
+  

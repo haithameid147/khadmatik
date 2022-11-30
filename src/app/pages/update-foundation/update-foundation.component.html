@@ -1,0 +1,152 @@
+
+<!-- template: ` -->
+  <!-- <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <input name="fiirst" ngModel required #fiirst="ngModel">
+  <select class="form-control"  name="first" type="number" ngModel required #first="ngModel" >
+    <!-- <option *ngFor="let cities of cityBean"> {{cities.id}} </option> -->
+     <!-- <option>1</option>
+    <option>2</option>
+    <option>3</option> -->
+  <!-- </select> --> -->
+
+  <div class="container">
+    <div style="margin-left: 10px;">
+      <h2 style="color: blue;" class="font-weight-bold">تعديل</h2>
+    </div>
+
+      
+
+
+
+
+      
+<br><br>
+<div class="container">
+  <br>
+  <form #f="ngForm" (ngSubmit)="updateFoundation(f)">
+    <br>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <label for="inputAddress">اسم المؤسسة</label>
+          </td>
+          <td>
+            <label for="inputAddress">رقم الهاتف</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <!-- <input class="form-control" placeholder="الاسم" name="namee" type="text" [(ngModel)]="orders.name" required
+              minlength="3" maxlength="100" #namee="ngModel"> -->
+              <input class="form-control" name="nameAr" type="text" [(ngModel)]="foundatiion.nameAr" required
+              #name="ngModel" minlength="3" maxlength="100">
+              <span style="color: red;" *ngIf="name.invalid &&name.touched">من فضلك ادخل الاسم</span>
+          </td>
+          <td>
+            <!-- <input class="form-control" placeholder="الرقم" name="number" type="text" [(ngModel)]="orders.phone" minlength="9" maxlength="14" pattern="[0-9]*"
+              required #number="ngModel"> -->
+              <input class="form-control" name="phone" type="text" [(ngModel)]="foundatiion.phone" required minlength="9" maxlength="14" pattern="[0-9]*"
+              #phone="ngModel">
+              <span style="color: red;" *ngIf="phone.invalid &&phone.touched">من فضلك ادخل رقم صالح </span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    <br>
+    <div class="form-group">
+      <span>
+        <h5>معلومات عن الخدمة</h5>
+      </span>
+      <textarea class="form-control" name="desc" type="text" [(ngModel)]="foundatiion.description" required required minlength="200" maxlength="500"
+        #desc="ngModel" rows="3"></textarea>
+        <span style="color: red;" *ngIf="desc.invalid &&desc.touched">من فضلك ادخل عدد كلمات مناسبة 200الي 500 حرف</span>
+    </div>
+
+    <div class="form-group">
+      <span>
+        <h5>أكتب ما يميزيك عن الاخرون</h5>
+      </span>
+      <textarea class="form-control" name="advantage" type="text" [(ngModel)]="foundatiion.advantages" required required minlength="200" maxlength="500"
+        #advantage="ngModel" rows="3"></textarea>
+        <span style="color: red;" *ngIf="advantage.invalid &&advantage.touched">من فضلك ادخل عدد كلمات مناسبة 200الي 500 حرف</span>
+    </div>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <h5>الخدمة</h5><span style="color: red;" *ngIf="first.invalid">من فضلك اختر الخدمة</span>
+          </td>
+          <td>
+            <h5>المدينة</h5><span style="color: red;" *ngIf="citydata.invalid">من فضلك اختر المدينة</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="first" [(ngModel)]="ngselect2"
+              type="number" ngModel required #first="ngModel">
+              <option *ngFor="let service of service" [selected]="service === ngselect2" value="{{service.id}}"> {{service.name}} </option>
+            </select>
+            <!-- <select class="form-control"  name="first" type="number" [(ngModel)]="ngselect2" ngModel required #first="ngModel" >
+              <option *ngFor="let service of service" [selected]="service === ngselect2" value ="{{service.id}}">  {{service.name}} </option>
+            </select> -->
+          </td>
+          <!-- <span style="color: red;" *ngIf="service.invalid">من فضلك ادخل وصف الخدمة</span> -->
+
+          <td>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="citydata" [(ngModel)]="ngselect"
+              type="number" ngModel required #citydata="ngModel">
+              <option *ngFor="let city of city" [selected]="city === ngselect" value="{{city.id}}"> {{city.nameAr}} </option>
+            </select>
+            <!-- <select class="form-control"  name="citydata" type="number" [(ngModel)]="ngselect" ngModel required #citydata="ngModel" >
+              <option *ngFor="let city of city" [selected]="city === ngselect" value ="{{city.id}}">  {{city.nameAr}} </option>
+            </select> -->
+            <!-- <select class="form-control"  name="citydata" type="number" ngModel required #citydata="ngModel" >
+            <option *ngFor="let city of city" value ="{{city.id}}">  {{city.nameAr}} </option>
+          </select> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <fieldset class="form-groub">
+      <label>اختر صورة</label>
+      <input class="form-control" type="file" accept="image/*" (change)="onSelectFile($event)" #image required>
+    </fieldset>
+    <br>
+    <br>
+    <img class="img-fluidd" style="height:300px; width:300px;" [src]="foundatiion.photo" />
+
+   
+
+
+
+
+ <br>
+ <br>
+ <br>
+
+
+
+
+
+
+
+
+    <div class="col text-center">
+      <button [disabled]="f.invalid" class="btn btn-primary btn-lg">ارسال الطلب</button>
+    </div>
+
+
+  </form>
+
+</div>
+
+
+
+<br><br>
+<br>
+
+<hr class="featurette-divider">
+<br>
+<app-footer></app-footer>

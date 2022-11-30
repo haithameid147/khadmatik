@@ -1,0 +1,191 @@
+  <app-search></app-search>
+
+<div class="text-center">
+  <h1>اختر من مقدمي الخدمات</h1>
+</div>
+  <div class="container">
+  <div class="card" *ngIf="noData">
+    <div class="text-center">
+    <div class="card-header">
+     <h3> هنا تظهر نتائج البحث  </h3>
+    </div>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <div class="text-center">
+        <p>اختر الخدمة والمدينة واضغط علي بحث وسوف يظهر لك نتائج البحث ويمكنك الاختيار من مقدمي الخدمات</p>
+      </div>
+      <div class="text-center">
+        <footer class="blockquote-footer">نتمني لك خدمة ممتعة <cite title="Source Title"></cite></footer>
+      </div>
+      </blockquote>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <!-- <div class="content">
+     <div fxLayout="row" fxLayoutGap="16px">
+      <div fxFlex="25%" *ngFor="let f of foundationBean" >
+        <mat-card class="example-card" *ngFor="let f of foundationBean">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+     </div>
+   
+
+
+  </div> -->
+
+
+  <div class="row justify-content-center">
+    <mat-card class="example-card" *ngFor="let f of foundationBean">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{f.nameAr}}</mat-card-title>
+        <mat-card-subtitle>{{f.service.name}}</mat-card-subtitle>   
+        <!-- {{ (f.service.name.length>2)? (f.service.name  | slice:0:2)+'...':(f.service.name ) }} -->
+
+      </mat-card-header>
+      <!-- <img class="img-fluidd" style="height:300px; width:300px;" [src]="f.photo" /> -->
+      <img mat-card-image style="height:200px;" src="{{f.photo}}" alt="Photo of a Shiba Inu">
+      <!-- <img src="assets/img/myimage.png"> -->
+      <mat-card-content>
+        <p>
+          {{ (f.description.length>2)? (f.description  | slice:0:20)+'...':(f.description ) }}
+        </p>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <table class="container table">
+          <tr>
+            <td colspan="2" class="text-center">                   
+
+              <a type="button" href="tel:{{f.phone}}" style="background-color: blue;" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-telephone-minus-fill" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z" />
+                </svg>
+                اتصل
+              </a>
+              &nbsp;&nbsp;&nbsp;
+              <button type="button" style="background-color: blue" (click)="showFoundation(f)" class="btn btn-primary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-ticket-detailed-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5Zm4 1a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5Zm0 5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5ZM4 8a1 1 0 0 0 1 1h6a1 1 0 1 0 0-2H5a1 1 0 0 0-1 1Z" />
+                </svg>
+                عرض
+              </button>
+            </td>
+            
+          </tr>
+        </table>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+   <div class="container marketing">
+    
+    <hr class="featurette-divider">
+
+
+
+    <!-- لا يحذف  -->
+  
+    <!-- <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">الخدمات المنزلية <span class="text-muted">  ستجدها في مكان واحد. </span></h2>
+        <p class="lead">أسهل طريقة لإيجاد كل الخدمات المنزلية من نظافة ونقل اثاث واعمال السباكة وغيرها من الخدمات ستجدها في مكان واحد في جميع مدن المملكة العربية السعودية</p>
+      </div>
+      <div class="col-md-5">
+          <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" style="width: 500px;height:500px" src="https://cdn.armut.com/images/landing-pages/sa/tr:w-540/qualty.jpg">
+      </div>
+    </div>
+  
+    <hr class="featurette-divider">
+  
+    <div class="row featurette" style="background-color: rgb(255, 255, 255); width:100% ;">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">اذا كنت مقدم خدمة وتريد عرضها لدينا يمكنك التسجيل واضافة الخدمة بكل سهوله </h2>
+        <p class="lead"> يمكنك التسجيل لدينا من هنا   </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+      </div>
+    </div> -->
+  
+
+    <div class="row">
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+  
+        <h2 class="fw-normal">شركات نظافة ونقل اثاث</h2>
+        <p>اذا كنت تبحث عن افضل الشركات المتخصصة في النظافة العامة ونظافة الشقق والفيلا ونقل الاثاث ستجدها هنا من اكثر من مزود خدمة واختار الأنسب بالنسبة لك</p>
+      </div>
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+  
+        <h2 class="fw-normal">اطلب مهني </h2>
+        <p>اذا كنت تبحث عن مهني (نجار,سباك,سباك,وباقي المهنيين) ستجد الكثير من المهنيين مسجلين لدينا واختار الانسب </p>
+      </div>
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+  
+        <h2 class="fw-normal">خدمات اخري</h2>
+        <p>اطلب خدمة محددة وسنعمل علي اضافتها مستقبلا</p>
+        <p><a class="btn btn-secondary" href="#">عرض التفاصيل</a></p>
+      </div>
+    </div>
+  
+  </div>
+  <hr class="featurette-divider">
+<app-footer></app-footer>
+
+
+<!-- <div class="row">
+  <div class="col-lg-4 col-md-4 col-6 p-1" *ngFor="let f of foundationBean">
+    <div class="card border-primary" style="height: 300px">
+      <div class="image-parent">
+      <img class="img-fluidd" style="height:300px; width:300px;" [src]="f.photo" />
+    </div>
+      <div class="card-body text-primary">
+        <p>{{f.nameAr}} &nbsp; </p>
+        <p>{{f.phone}}</p>
+        <div class="col text-center">
+          <a class="btn btn-primary me-md-2" href="tel:{{f.phone}}" type="button">اضغط للاتصال</a>
+          <button class="btn btn-primary" (click)="showFoundation(f)" type="button">عرض التفاصيل</button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div> -->

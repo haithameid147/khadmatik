@@ -1,0 +1,73 @@
+<div class="text-center" style="background-color: white; border-radius: 25px;">
+يمكنك اضافة خدمتين فقط
+</div>
+<div class="container">
+<table class="table">
+  <thead>
+    
+  <tr>
+
+    <th>الخدمه</th>
+    <th>المدينة</th>
+    
+    
+    <!-- <th>نشط</th> -->
+
+    <th>تعديل</th>
+    <th>حذف</th>
+
+
+  </tr>
+</thead>
+<tbody>
+  <tr *ngIf="foundationBean.length === 0">
+    <div class="text-center" style="background-color: white; border-radius: 25px;">
+لا يوجد لديك خدمات      </div>
+
+  </tr>
+  <tr *ngFor="let foundation of foundationBean">
+    <td>{{foundation.service.name}}</td>
+    <td>{{foundation.city.nameAr}}</td>
+
+    <!-- <td><input class="form-check-input" type="checkbox"
+      [value]="foundation.id"
+      [checked]="foundation.active"
+      (change)="updateCheck($event)"
+      ></td> -->
+
+    <td><button  (click)="uppdateFoundation(foundation.id,foundation.service.id)" class="btn btn-success">تعديل </button> </td>
+    <td><button (click)="deleteFoundation(foundation.id)"  class="btn btn-warning">حذف </button> </td>
+    <!-- <td><button  (click)="updateArea(area.id)" class="btn btn-success">ubdate </button> </td> -->
+    <!-- <td><button  (click)="foundationDetails(foundation.id)" class="btn btn-success">التفاصيل </button> </td> -->
+  </tr>
+</tbody>
+</table>
+<div class="row">
+  <td><button (click)="addFoundation()" class="btn btn-success">خدمة جديدة</button> </td>
+</div>
+</div>
+
+
+
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br><br>
+<br>
+
+<hr class="featurette-divider">
+<br>
+<app-footer></app-footer>

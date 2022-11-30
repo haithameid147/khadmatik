@@ -1,0 +1,104 @@
+
+<br>
+<br>
+
+
+
+<mat-tab-group mat-align-tabs="center">
+   <mat-tab label=" مستخدم جديد">
+      <div class="container">
+         <H1 class="text-center">اضافة مستخدم جديد</H1>
+      </div>
+      <div class="container">
+         <form #newUserr="ngForm" (ngSubmit)="newUser()">
+      <fieldset class="form-group">
+      <label>الأيميل</label>
+      <input type="email" [(ngModel)]="user.userName" class="form-control" name="userName" email required="required" #userName="ngModel">
+      <span style="color: red;" *ngIf="userName.invalid">من فضلك ادخل ايميل صالح يحتوي علي علامة @</span>
+      
+       </fieldset>
+       <fieldset class="form-group">
+         <label>رقم الهاتف</label>
+         <input class="form-control" placeholder="الرقم" name="mobile" type="text" [(ngModel)]="user.mobile" minlength="9" maxlength="14" pattern="[0-9]*"
+         required #mobile="ngModel">
+         <span style="color: red;" *ngIf="mobile.invalid &&mobile.touched">من فضلك ادخل رقم صالح </span>
+          </fieldset>
+      
+       <fieldset class="form-group">
+          <label>اسم الاول</label>
+          <input type="text" [(ngModel)]="user.userFirstName" class="form-control" name="userFirstName" required="required">
+           </fieldset>
+           <fieldset class="form-group">
+              <label>اسم الاخير</label>
+              <input type="text" [(ngModel)]="user.userLastName" class="form-control" name="userLastName" required="required">
+               </fieldset>
+       <fieldset class="form-group">
+      <label>كلمة المرور</label>
+      <input type="text" [(ngModel)]="user.userPassword" class="form-control" name="password"  required="required" axlength="6" #password="ngModel">
+      <span style="color: red;" *ngIf="password.invalid">من فضلك ادخل مرور صالحة لا تقل عن 6 حروف</span>
+      
+       </fieldset>
+       <!-- <button class="btn btn-success" >Save</button> -->
+       <br>
+       <div class="col text-center">
+         <button [disabled]="newUserr.invalid" class="btn btn-primary btn-lg">حفظ </button>
+       </div>
+      
+      
+       <!-- <div class="col text-center">
+         <button  class="btn btn-primary btn-lg" (click)="newUser()">حفظ</button>
+       </div> -->
+      
+      <!-- <button class="btn btn-success" (click)="newUser()">Save</button> -->
+         </form>
+      
+      
+       
+      </div>
+      
+   </mat-tab>
+   <mat-tab label=" تسجيل الدخول ">
+      <div class="container mt-5">
+         <div class="card" style="padding: 20px;">
+             <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                 <input type="text"
+                 ngModel
+                 name="userName"
+                 id="userName"
+                 placeholder="يرجي ادخال الايميل"
+                 class="form-control mb-3"
+                 >
+     
+                 <input type="password"
+                 ngModel
+                 name="userPassword"
+                 id="userPassword"
+                 placeholder="ادخل كلمة المرور"
+                 class="form-control mb-3"
+                 >
+     
+                 <input type="submit"
+                 value="Login"
+                 class="btn btn-outline-primary form-control rounded-0">
+             </form>
+         </div>
+     </div>
+   </mat-tab>
+
+</mat-tab-group>
+
+
+
+
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+
+<hr class="featurette-divider">
+<br>
+<app-footer></app-footer>
